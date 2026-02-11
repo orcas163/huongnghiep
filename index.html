@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Định Hướng Nghề Nghiệp</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI', sans-serif;
+}
+
+body{
+    background:#f1f5f9;
+    color:#1e293b;
+    line-height:1.6;
+}
+
+nav{
+    position:fixed;
+    top:0;
+    width:100%;
+    background:#0f172a;
+    display:flex;
+    justify-content:center;
+    padding:18px 0;
+    z-index:1000;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    margin:0 25px;
+    font-weight:600;
+    transition:0.3s;
+}
+
+nav a:hover{
+    color:#38bdf8;
+}
+
+.spacer{ height:75px; }
+
+.hero{
+    height:85vh;
+    background:linear-gradient(135deg,#2563eb,#06b6d4);
+    color:white;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:20px;
+}
+
+.hero h1{
+    font-size:48px;
+    margin-bottom:20px;
+}
+
+.hero p{
+    max-width:800px;
+    font-size:20px;
+}
+
+.container{
+    max-width:1200px;
+    margin:auto;
+    padding:80px 20px;
+}
+
+.section-title{
+    text-align:center;
+    font-size:34px;
+    margin-bottom:60px;
+}
+
+.card{
+    display:flex;
+    gap:40px;
+    align-items:center;
+    background:white;
+    padding:30px;
+    margin-bottom:60px;
+    border-radius:18px;
+    box-shadow:0 12px 30px rgba(0,0,0,0.08);
+    opacity:0;
+    transform:translateY(40px);
+    transition:0.8s ease;
+}
+
+.card.show{
+    opacity:1;
+    transform:translateY(0);
+}
+
+.card img{
+    width:300px;
+    height:220px;
+    object-fit:cover;
+    border-radius:14px;
+}
+
+.card-content{
+    flex:1;
+}
+
+.card-content h3{
+    color:#2563eb;
+    margin-bottom:15px;
+}
+
+.card-content ul{
+    margin-left:20px;
+    margin-top:10px;
+}
+
+footer{
+    background:#0f172a;
+    color:white;
+    text-align:center;
+    padding:25px;
+}
+
+html{ scroll-behavior:smooth; }
+
+@media(max-width:768px){
+    .card{
+        flex-direction:column;
+        text-align:center;
+    }
+    .hero h1{ font-size:32px; }
+}
+
+</style>
+</head>
+
+<body>
+
+<nav>
+    <a href="#gioithieu">Giới Thiệu</a>
+    <a href="#nganh">Ngành Nghề</a>
+</nav>
+
+<div class="spacer"></div>
+
+<section class="hero" id="gioithieu">
+    <h1>Định Hướng Nghề Nghiệp Cho Học Sinh</h1>
+    <p>
+        Trang web cung cấp thông tin chi tiết về các nhóm ngành phổ biến,
+        phương thức tuyển sinh và các trường đại học tiêu biểu,
+        giúp học sinh lựa chọn con đường phù hợp với năng lực và định hướng tương lai.
+    </p>
+</section>
+
+<section id="nganh" class="container">
+    <h2 class="section-title">Các Nhóm Ngành Phổ Biến</h2>
+
+    <!-- CNTT -->
+    <div class="card">
+        <img src="images/congnghe.jpg" alt="CNTT">
+        <div class="card-content">
+            <h3>1. Công nghệ thông tin</h3>
+            <p>Ngành phát triển mạnh trong kỷ nguyên số.</p>
+            <p><strong>Phương thức tuyển sinh:</strong></p>
+            <ul>
+                <li>Xét điểm THPT (A00, A01, D01)</li>
+                <li>Đánh giá năng lực ĐHQG</li>
+                <li>Xét học bạ</li>
+            </ul>
+            <p><strong>Trường tiêu biểu:</strong></p>
+            <ul>
+                <li>ĐH Bách Khoa Hà Nội</li>
+                <li>ĐH Công nghệ - ĐHQG Hà Nội</li>
+                <li>ĐH CNTT - ĐHQG TP.HCM</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- KINH TẾ -->
+    <div class="card">
+        <img src="images/kinhte.jpg" alt="Kinh tế">
+        <div class="card-content">
+            <h3>2. Kinh tế - Quản lý</h3>
+            <p>Phù hợp với học sinh năng động, thích kinh doanh.</p>
+            <p><strong>Phương thức tuyển sinh:</strong></p>
+            <ul>
+                <li>Xét điểm THPT (A00, A01, D01)</li>
+                <li>Xét học bạ</li>
+                <li>Xét chứng chỉ quốc tế (IELTS)</li>
+            </ul>
+            <p><strong>Trường tiêu biểu:</strong></p>
+            <ul>
+                <li>ĐH Kinh tế Quốc dân</li>
+                <li>ĐH Ngoại thương</li>
+                <li>ĐH Kinh tế TP.HCM</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Y DƯỢC -->
+    <div class="card">
+        <img src="images/yduoc.jpg" alt="Y dược">
+        <div class="card-content">
+            <h3>3. Y Dược</h3>
+            <p>Ngành chăm sóc sức khỏe, yêu cầu học lực cao.</p>
+            <p><strong>Phương thức tuyển sinh:</strong></p>
+            <ul>
+                <li>Xét điểm THPT (B00)</li>
+                <li>Kết hợp chứng chỉ tiếng Anh</li>
+            </ul>
+            <p><strong>Trường tiêu biểu:</strong></p>
+            <ul>
+                <li>ĐH Y Hà Nội</li>
+                <li>ĐH Y Dược TP.HCM</li>
+                <li>ĐH Y Dược Huế</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- LUẬT -->
+    <div class="card">
+        <img src="images/luat.jpg" alt="Luật">
+        <div class="card-content">
+            <h3>4. Luật</h3>
+            <p>Ngành nghiên cứu pháp luật và hệ thống pháp lý.</p>
+            <p><strong>Phương thức tuyển sinh:</strong></p>
+            <ul>
+                <li>Xét điểm THPT (C00, D01)</li>
+                <li>Đánh giá năng lực</li>
+            </ul>
+            <p><strong>Trường tiêu biểu:</strong></p>
+            <ul>
+                <li>ĐH Luật Hà Nội</li>
+                <li>ĐH Luật TP.HCM</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- SƯ PHẠM -->
+    <div class="card">
+        <img src="images/supham.jpg" alt="Sư phạm">
+        <div class="card-content">
+            <h3>5. Sư phạm</h3>
+            <p>Ngành đào tạo giáo viên và nhà giáo dục.</p>
+            <p><strong>Phương thức tuyển sinh:</strong></p>
+            <ul>
+                <li>Xét điểm THPT</li>
+                <li>Xét học bạ</li>
+            </ul>
+            <p><strong>Trường tiêu biểu:</strong></p>
+            <ul>
+                <li>ĐH Sư phạm Hà Nội</li>
+                <li>ĐH Sư phạm TP.HCM</li>
+            </ul>
+        </div>
+    </div>
+
+</section>
+
+<footer>
+    © 2026 Website Định Hướng Nghề Nghiệp | Bài thuyết trình
+</footer>
+
+<script>
+const cards = document.querySelectorAll('.card');
+
+const observer = new IntersectionObserver(entries=>{
+    entries.forEach(entry=>{
+        if(entry.isIntersecting){
+            entry.target.classList.add('show');
+        }
+    });
+},{threshold:0.2});
+
+cards.forEach(card=>observer.observe(card));
+</script>
+
+</body>
+</html>
