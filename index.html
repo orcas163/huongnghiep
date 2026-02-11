@@ -19,6 +19,7 @@ body{
     line-height:1.6;
 }
 
+/* ===== NAV ===== */
 nav{
     position:fixed;
     top:0;
@@ -30,10 +31,19 @@ nav{
     z-index:1000;
 }
 
+nav ul{
+    list-style:none;
+    display:flex;
+    gap:30px;
+}
+
+nav ul li{
+    position:relative;
+}
+
 nav a{
     color:white;
     text-decoration:none;
-    margin:0 25px;
     font-weight:600;
     transition:0.3s;
 }
@@ -42,11 +52,40 @@ nav a:hover{
     color:#38bdf8;
 }
 
+/* ===== DROPDOWN ===== */
+.dropdown-menu{
+    position:absolute;
+    top:30px;
+    left:0;
+    background:white;
+    min-width:200px;
+    border-radius:8px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.1);
+    display:none;
+    flex-direction:column;
+    padding:10px 0;
+}
+
+.dropdown-menu a{
+    color:#1e293b;
+    padding:8px 15px;
+}
+
+.dropdown-menu a:hover{
+    background:#f1f5f9;
+}
+
+nav ul li:hover .dropdown-menu{
+    display:flex;
+}
+
 .spacer{ height:75px; }
 
+/* ===== HERO (ẢNH ĐẦU TRANG) ===== */
 .hero{
     height:85vh;
-    background:linear-gradient(135deg,#2563eb,#06b6d4);
+    background:url("images/banner.jpg") center/cover no-repeat;
+    position:relative;
     color:white;
     display:flex;
     flex-direction:column;
@@ -54,6 +93,19 @@ nav a:hover{
     align-items:center;
     text-align:center;
     padding:20px;
+}
+
+.hero::after{
+    content:"";
+    position:absolute;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.55);
+}
+
+.hero h1, .hero p{
+    position:relative;
+    z-index:2;
 }
 
 .hero h1{
@@ -66,6 +118,7 @@ nav a:hover{
     font-size:20px;
 }
 
+/* ===== CONTENT ===== */
 .container{
     max-width:1200px;
     margin:auto;
@@ -118,11 +171,24 @@ nav a:hover{
     margin-top:10px;
 }
 
-footer{
+/* ===== CONTACT ===== */
+#contact{
     background:#0f172a;
     color:white;
+    padding:60px 20px;
     text-align:center;
-    padding:25px;
+}
+
+#contact h2{
+    margin-bottom:20px;
+}
+
+/* ===== FOOTER ===== */
+footer{
+    background:#0c1220;
+    color:white;
+    text-align:center;
+    padding:20px;
 }
 
 html{ scroll-behavior:smooth; }
@@ -141,8 +207,22 @@ html{ scroll-behavior:smooth; }
 <body>
 
 <nav>
-    <a href="#gioithieu">Giới Thiệu</a>
-    <a href="#nganh">Ngành Nghề</a>
+<ul>
+    <li><a href="#gioithieu">Giới Thiệu</a></li>
+
+    <li>
+        <a href="#nganh">Ngành Nghề ▼</a>
+        <div class="dropdown-menu">
+            <a href="#cntt">Công nghệ thông tin</a>
+            <a href="#kinhte">Kinh tế</a>
+            <a href="#yduoc">Y dược</a>
+            <a href="#luat">Luật</a>
+            <a href="#supham">Sư phạm</a>
+        </div>
+    </li>
+
+    <li><a href="#contact">Liên Hệ</a></li>
+</ul>
 </nav>
 
 <div class="spacer"></div>
@@ -150,115 +230,57 @@ html{ scroll-behavior:smooth; }
 <section class="hero" id="gioithieu">
     <h1>Định Hướng Nghề Nghiệp Cho Học Sinh</h1>
     <p>
-        Trang web cung cấp thông tin chi tiết về các nhóm ngành phổ biến,
-        phương thức tuyển sinh và các trường đại học tiêu biểu,
-        giúp học sinh lựa chọn con đường phù hợp với năng lực và định hướng tương lai.
+        Cung cấp thông tin chi tiết về ngành học, phương thức tuyển sinh 
+        và các trường đại học tiêu biểu giúp bạn định hướng tương lai.
     </p>
 </section>
 
 <section id="nganh" class="container">
     <h2 class="section-title">Các Nhóm Ngành Phổ Biến</h2>
 
-    <!-- CNTT -->
-    <div class="card">
-        <img src="images/congnghe.jpg" alt="CNTT">
+    <div class="card" id="cntt">
+        <img src="images/congnghe.jpg">
         <div class="card-content">
             <h3>1. Công nghệ thông tin</h3>
             <p>Ngành phát triển mạnh trong kỷ nguyên số.</p>
-            <p><strong>Phương thức tuyển sinh:</strong></p>
-            <ul>
-                <li>Xét điểm THPT (A00, A01, D01)</li>
-                <li>Đánh giá năng lực ĐHQG</li>
-                <li>Xét học bạ</li>
-            </ul>
-            <p><strong>Trường tiêu biểu:</strong></p>
-            <ul>
-                <li>ĐH Bách Khoa Hà Nội</li>
-                <li>ĐH Công nghệ - ĐHQG Hà Nội</li>
-                <li>ĐH CNTT - ĐHQG TP.HCM</li>
-            </ul>
         </div>
     </div>
 
-    <!-- KINH TẾ -->
-    <div class="card">
-        <img src="images/kinhte.jpg" alt="Kinh tế">
+    <div class="card" id="kinhte">
+        <img src="images/kinhte.jpg">
         <div class="card-content">
             <h3>2. Kinh tế - Quản lý</h3>
             <p>Phù hợp với học sinh năng động, thích kinh doanh.</p>
-            <p><strong>Phương thức tuyển sinh:</strong></p>
-            <ul>
-                <li>Xét điểm THPT (A00, A01, D01)</li>
-                <li>Xét học bạ</li>
-                <li>Xét chứng chỉ quốc tế (IELTS)</li>
-            </ul>
-            <p><strong>Trường tiêu biểu:</strong></p>
-            <ul>
-                <li>ĐH Kinh tế Quốc dân</li>
-                <li>ĐH Ngoại thương</li>
-                <li>ĐH Kinh tế TP.HCM</li>
-            </ul>
         </div>
     </div>
 
-    <!-- Y DƯỢC -->
-    <div class="card">
-        <img src="images/yduoc.jpg" alt="Y dược">
+    <div class="card" id="yduoc">
+        <img src="images/yduoc.jpg">
         <div class="card-content">
             <h3>3. Y Dược</h3>
-            <p>Ngành chăm sóc sức khỏe, yêu cầu học lực cao.</p>
-            <p><strong>Phương thức tuyển sinh:</strong></p>
-            <ul>
-                <li>Xét điểm THPT (B00)</li>
-                <li>Kết hợp chứng chỉ tiếng Anh</li>
-            </ul>
-            <p><strong>Trường tiêu biểu:</strong></p>
-            <ul>
-                <li>ĐH Y Hà Nội</li>
-                <li>ĐH Y Dược TP.HCM</li>
-                <li>ĐH Y Dược Huế</li>
-            </ul>
         </div>
     </div>
 
-    <!-- LUẬT -->
-    <div class="card">
-        <img src="images/luat.jpg" alt="Luật">
+    <div class="card" id="luat">
+        <img src="images/luat.jpg">
         <div class="card-content">
             <h3>4. Luật</h3>
-            <p>Ngành nghiên cứu pháp luật và hệ thống pháp lý.</p>
-            <p><strong>Phương thức tuyển sinh:</strong></p>
-            <ul>
-                <li>Xét điểm THPT (C00, D01)</li>
-                <li>Đánh giá năng lực</li>
-            </ul>
-            <p><strong>Trường tiêu biểu:</strong></p>
-            <ul>
-                <li>ĐH Luật Hà Nội</li>
-                <li>ĐH Luật TP.HCM</li>
-            </ul>
         </div>
     </div>
 
-    <!-- SƯ PHẠM -->
-    <div class="card">
-        <img src="images/supham.jpg" alt="Sư phạm">
+    <div class="card" id="supham">
+        <img src="images/supham.jpg">
         <div class="card-content">
             <h3>5. Sư phạm</h3>
-            <p>Ngành đào tạo giáo viên và nhà giáo dục.</p>
-            <p><strong>Phương thức tuyển sinh:</strong></p>
-            <ul>
-                <li>Xét điểm THPT</li>
-                <li>Xét học bạ</li>
-            </ul>
-            <p><strong>Trường tiêu biểu:</strong></p>
-            <ul>
-                <li>ĐH Sư phạm Hà Nội</li>
-                <li>ĐH Sư phạm TP.HCM</li>
-            </ul>
         </div>
     </div>
 
+</section>
+
+<section id="contact">
+    <h2>Liên hệ</h2>
+    <p>Email: huongnghiep@example.com</p>
+    <p>Điện thoại: 0123 456 789</p>
 </section>
 
 <footer>
